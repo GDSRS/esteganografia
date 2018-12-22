@@ -1,0 +1,6 @@
+*.png
+*.jpg
+*.NEF
+*.TIFF
+env
+*.swp
