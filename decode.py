@@ -1,6 +1,7 @@
 from PIL import Image
 import numpy as np
-
+import sys
+    
 RED_LAYER = 0
 def decode_message(image):
     """
@@ -9,7 +10,7 @@ def decode_message(image):
     image = Image.open(image)
     #print(image.size)
     image_array = np.array(image)
-    print(image_array.shape)
+    #print(image_array.shape)
     phrase = ''
     #print('image to decode',image_array.shape)
     for line in range(0,image_array.shape[0]-1):
@@ -35,7 +36,8 @@ def convert_binary_to_string(string):
         final_string += ''.join(chr(int(word,2)))
     return final_string
 
-
-out = decode_message("teste.png")
+image_path = sys.argv[1]
+out = decode_message(image_path)
 print(out)
-print(convert_binary_to_string(out))
+print('-----------------')
+print(convert_binary_to_string(out))#[:-2]
